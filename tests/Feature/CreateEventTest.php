@@ -23,6 +23,14 @@ class CreateEventTest extends TestCase
             'location' => 'Camp Nou, Barcelona',
         ];
 
+        $eventData = [
+            'name' => 'Conferencia de YouDevs',
+            'featured' => 'meme2.png',
+            'date' => Carbon::now(),
+            'time' => '12:00:00',
+            'location' => 'Camp Nou, Barcelona',
+        ];
+
         // Act:
         $response = $this ->post('/events', $eventData);
 

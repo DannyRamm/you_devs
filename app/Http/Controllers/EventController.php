@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Http\Requests\StoreEventRequest;
+use Illuminate\Http\RedirectResponse;
 
 class EventController extends Controller
 {
-    public function store(Request $request)
+    public function index()
     {
-        $evenData = $request->all();
+        $events = Event::all();
+        return view('events.index',['events' =>$events]);
+    }
 
-        Event::create($evenData);
+    public function store(StoreEventRequest $request): RedirectResponse
+    {
+        $validateEvenData = $request->all();
+
+        Event::create($validateEvenData);
+
         return redirect()->route('events.index');  
     }
 }
