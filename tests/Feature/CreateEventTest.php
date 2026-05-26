@@ -9,9 +9,8 @@ use Carbon\Carbon;
 
 class CreateEventTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use RefreshDatabase;
+    
     public function test_an_event_can_be_created(): void
     {
         // Arrange:
